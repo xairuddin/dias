@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=" http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgot Password Page</title>
+</head>
+<body>
+<form name = "f" th:method="patch" th:action="@{/auth/forgotPass}" th:object="${person}">
+    <label for="username">Enter your username: </label>
+    <input type="text" th:field="*{username}" id = "username"/>
+    <br>
+    <label for="password">Enter your new  password:</label>
+    <input type="password" th:field="*{password}" id="password"/>
+    <br>
+    <input type="submit" value="Send"/>
+
+    <div th:if="${param.error}" style = "color: red ">
+        Incorrect username or password
+    </div>
+</form>
+
+</body>
+</html>
